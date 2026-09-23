@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rishabh Yadav | Video Editor & Web Developer</title>
+  <style>
+    /* Global Styles */
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --accent: #ec4899;
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Navbar */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+      transition: 0.3s;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 80px 0 60px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      background: linear-gradient(to right, #6366f1, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero h2 {
+      font-size: 1.4rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 0 auto 30px;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background: var(--primary);
+      color: white;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: var(--primary-dark);
+    }
+
+    /* Sections */
+    section {
+      padding: 60px 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      text-align: center;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+      margin: 8px auto 0;
+      border-radius: 2px;
+    }
+
+    /* Cards Grid */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+    }
+
+    .card h3 {
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .card .badge {
+      display: inline-block;
+      background: rgba(99, 102, 241, 0.15);
+      color: var(--primary);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-bottom: 12px;
+    }
+
+    .card ul {
+      margin-left: 18px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Skills Badges */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      background: #0f172a;
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+    }
+
+    /* Contact */
+    .contact-info {
+      text-align: center;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 1.1rem;
+    }
+
+    .contact-info a {
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">Rishabh Yadav</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <div class="container hero" id="about">
+    <h1>Rishabh Yadav</h1>
+    <h2>Video Editor & Web Developer</h2>
+    <p>
+      Class 12 pass-out with 2-3 years of hands-on experience in professional video editing (1000+ videos edited) 
+      and freelance content creation. Exploring AI, Cloud AI, and modern web development.
+    </p>
+    <a href="#contact" class="btn">Get In Touch</a>
+  </div>
+
+  <div class="container">
+    <!-- Skills -->
+    <section id="skills">
+      <h2 class="section-title">Skills & Expertise</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Video Editing</h3>
+          <div class="tags">
+            <span class="tag">Premiere Pro</span>
+            <span class="tag">After Effects</span>
+            <span class="tag">CapCut</span>
+            <span class="tag">Filmora</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Web Development</h3>
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">GitHub</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Other & Certifications</h3>
+          <div class="tags">
+            <span class="tag">Canva</span>
+            <span class="tag">Content Creation</span>
+            <span class="tag">Artificial Intelligence (In Progress)</span>
+            <span class="tag">Cloud AI (In Progress)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+      <h2 class="section-title">Work Experience</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Freelance Video Editor</h3>
+          <span class="badge">2-3 Years | Freelance Platforms</span>
+          <ul>
+            <li>Edited 1000+ videos across reels, YouTube videos, and social media formats.</li>
+            <li>Handled post-production: cutting, sound syncing, transitions, and color grading.</li>
+            <li>Delivered high-quality projects on tight deadlines for repeat clients.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Freelance Content Creator</h3>
+          <span class="badge">Ongoing | Freelance</span>
+          <ul>
+            <li>Managed end-to-end client projects from concept to final video delivery.</li>
+            <li>Handled communication, revisions, and direct client requirements independently.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Kitchen Helper - Food Ordering Website</h3>
+          <span class="badge">HTML / CSS / JavaScript</span>
+          <p style="color: var(--text-muted); margin-bottom: 12px;">
+            A complete food-ordering platform featuring dynamic menu filtering, search functionality, a live shopping cart with quantity controls, and a fully responsive layout.
+          </p>
+          <div class="tags">
+            <span class="tag">Responsive</span>
+            <span class="tag">Dynamic Filter</span>
+            <span class="tag">Cart Logic</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>1000+ Video Edits & Social Content</h3>
+          <span class="badge">Video Post-Production</span>
+          <p style="color: var(--text-muted); margin-bottom: 12px;">
+            Created engaging visual pacing, storytelling, sound design, and color grading for high-retention reels and YouTube videos.
+          </p>
+          <div class="tags">
+            <span class="tag">Reels</span>
+            <span class="tag">YouTube</span>
+            <span class="tag">Motion Graphics</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Strengths & Snapshot -->
+    <section>
+      <h2 class="section-title">Key Strengths</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Fast Learner</h3>
+          <p style="color: var(--text-muted);">Self-taught developer and editor; picks up new tools and frameworks independently.</p>
+        </div>
+        <div class="card">
+          <h3>Storyteller's Eye</h3>
+          <p style="color: var(--text-muted);">Strong creative instinct for visual pacing, transitions, and narrative clarity.</p>
+        </div>
+        <div class="card">
+          <h3>Reliable Delivery</h3>
+          <p style="color: var(--text-muted);">Highly disciplined with freelance deadlines and consistent output quality.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="card contact-info">
+        <p><strong>Location:</strong> Tofapur Barai, Varanasi, Uttar Pradesh</p>
+        <p><strong>Phone:</strong> <a href="tel:+918765751787">+91 87657 51787</a></p>
+        <p><strong>Email:</strong> <a href="mailto:rishabhyadav69971@gmail.com">rishabhyadav69971@gmail.com</a></p>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Rishabh Yadav. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
